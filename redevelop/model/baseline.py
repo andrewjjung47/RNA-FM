@@ -10,7 +10,7 @@ from .backbones import choose_backbone
 from .pairwise_predictor import choose_pairwise_predictor
 
 from .weights_init import *
-from ptflops import get_model_complexity_info
+#from ptflops import get_model_complexity_info
 from torch.cuda.amp import autocast
 
 class Baseline(nn.Module):
@@ -312,10 +312,10 @@ class Baseline(nn.Module):
             print("Do not reload Weight by myself.")
 
 
-    def count_param(model, input_shape=(3, 224, 224)):
-        with torch.cuda.device(0):
-            flops, params = get_model_complexity_info(model, input_shape, as_strings=True, print_per_layer_stat=True)
-            print('{:<30}  {:<8}'.format('Computational complexity: ', flops))
-            print('{:<30}  {:<8}'.format('Number of parameters: ', params))
-            return ('{:<30}  {:<8}'.format('Computational complexity: ', flops)) + (
-                '{:<30}  {:<8}'.format('Number of parameters: ', params))
+#    def count_param(model, input_shape=(3, 224, 224)):
+#        with torch.cuda.device(0):
+#            flops, params = get_model_complexity_info(model, input_shape, as_strings=True, print_per_layer_stat=True)
+#            print('{:<30}  {:<8}'.format('Computational complexity: ', flops))
+#            print('{:<30}  {:<8}'.format('Number of parameters: ', params))
+#            return ('{:<30}  {:<8}'.format('Computational complexity: ', flops)) + (
+#                '{:<30}  {:<8}'.format('Number of parameters: ', params))
